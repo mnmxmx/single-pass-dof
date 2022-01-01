@@ -1,9 +1,22 @@
-import * as THREE from "libs/three.module.js"
+import * as THREE from "three"
 import EventBus from "../utils/EventBus";
+
+import {RGBELoader} from "three/examples/jsm/loaders/RGBELoader.js"
 
 class Assets{
     constructor(){
         this.textures = {
+            matcap: {
+                src: "./matcap.png",
+                value: null
+            },
+        }
+
+        this.envs = {
+            main: {
+                src: "./studio_small_08_1k.hdr",
+                value: null
+            }
         }
 
         this.shapes = {
@@ -15,6 +28,7 @@ class Assets{
         this.count = 0;
         this.countTotal(this.textures);
         this.countTotal(this.shapes);
+        this.countTotal(this.envs);
 
     }
 
@@ -28,6 +42,7 @@ class Assets{
         EventBus.emit("COUNT_LOADING", {
             progress: this.count / this.total
         });
+
         if(this.count == this.total){
             // .log(this.illusts);
             EventBus.emit("FINISH_LOADING");
@@ -37,9 +52,22 @@ class Assets{
     load(){
         this.loadShapes();
         this.loadTextures();
+        this.loadEnv();
     }
 
     loadShapes(){
+    }
+
+    loadEnv(){
+        for(let key in this.envs){
+            const data = this.envs[key]
+            const loader = new RGBELoader();
+            loader.load(data.src, (texture) => {
+                texture.encoding = THREE.sRGBEncoding;
+                data.value = texture;
+                this.compLoad();
+            });
+        }
     }
 
     loadTextures(){
@@ -47,6 +75,7 @@ class Assets{
             const data = this.textures[key];
             const loader = new THREE.TextureLoader();
             loader.load(data.src, (texture) => {
+                texture.encoding = THREE.sRGBEncoding;
                 data.value = texture;
                 this.compLoad();
             });
