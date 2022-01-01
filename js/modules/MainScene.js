@@ -15,7 +15,7 @@ export default class MainScene{
 
         this.scene = new THREE.Scene();
         this.camera = new THREE.PerspectiveCamera(45, common.dimensions.x / common.dimensions.y, 1, 10000);
-        this.camera.position.set(0, 0, 10);
+        this.camera.position.set(0, 0, 100);
         this.camera.lookAt(this.scene.position);
         this.fbo = new THREE.WebGLRenderTarget(common.fbo_dimensions.x, common.fbo_dimensions.y);
 
@@ -23,18 +23,16 @@ export default class MainScene{
     }
 
     init(){
-        
         const colors = [
             new THREE.Color(0xff8a9f),
             new THREE.Color(0xff9ce8),
             new THREE.Color(0xffe357)
         ]
-        
 
         const geometry = new THREE.SphereGeometry(10, 32, 32)
 
 
-        for(let i = 0; i < 400; i++){
+        for(let i = 0; i < 300; i++){
 
             let color = new THREE.Color().copy(colors[0]);
             color.lerp(colors[1], Math.random());
@@ -86,7 +84,7 @@ export default class MainScene{
             mesh.position.set(
                 (Math.random() - 0.5) * 700, 
                 (Math.random() - 0.5) * 500,
-                -Math.random() * 400,
+                (Math.random() -  0.5) * 400,
             );
 
             const scale = Math.random() * 0.8 + 0.2;

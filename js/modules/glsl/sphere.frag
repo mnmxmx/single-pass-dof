@@ -25,7 +25,7 @@ void main(){
     float light = dot(normalize(uLightPos), vNormal) * 0.5 + 0.5;
 
     vec3 color = uColor;
-    vec3 shadowColor = color * color * 0.5 + uShadowColor * 0.5;
+    vec3 shadowColor = color * color * 0.35 + uShadowColor * 0.65;
 
     vec3 viewVec = normalize(vPosition - uCameraPos);
     vec3 reflectVec = normalize(reflect(viewVec, vNormal));
@@ -36,13 +36,13 @@ void main(){
 
     vec4 envDiffuse = texture2D(uEnvMap, envUv);
 
-    light = light * 0.5 + min(4.0, envDiffuse.r) * 0.5;
+    light = light * 0.6 + min(4.0, envDiffuse.r) * 0.5;
 
     color = mix(shadowColor, color, light);
 
-    color = mix(color, uBgColor, 0.2);
+    // color = mix(color, uBgColor, 0.2);
     // envDiffuse.rgb *= pow(2.0, envDiffuse.a * 255.0 - 128.0);
-    color = mix(color, uBgColor * 0.2 + color * 0.8, fogFactor);
+    color = mix(color, uBgColor * 0.1 + color * 0.9, fogFactor);
 
     gl_FragColor = vec4(color, fogFactor);
 }
