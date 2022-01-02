@@ -84,7 +84,7 @@ export default class MainScene{
             mesh.position.set(
                 (Math.random() - 0.5) * 700, 
                 (Math.random() - 0.5) * 500,
-                (Math.random() -  0.5) * 400,
+                -Math.random() * 400,
             );
 
             const scale = Math.random() * 0.8 + 0.2;

@@ -28,6 +28,7 @@ export default class Artwork{
         this.mainScene = new MainScene({bgColor});
 
         this.scene = new THREE.Scene();
+        // 基本的にポストプロセスはcameraの情報は使わないから空でいい。
         this.camera = new THREE.Camera();
         
 
