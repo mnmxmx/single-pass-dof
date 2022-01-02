@@ -18,7 +18,6 @@ class Common {
     init({$wrapper, bgColor}) {
         this.pixelRatio = Math.min(2, window.devicePixelRatio);
 
-
         this.renderer = new THREE.WebGLRenderer({
             antialias: true,
             alpha: true,
@@ -26,8 +25,6 @@ class Common {
 
         this.$canvas = this.renderer.domElement;
         $wrapper.appendChild(this.$canvas);
-
-
 
         this.renderer.setClearColor(bgColor);
 

@@ -8,7 +8,6 @@ import * as THREE from "three"
 import bokeh_vert from "./glsl/bokeh.vert";
 import bokeh_frag from "./glsl/bokeh.frag";
 
-
 export default class Artwork{
     constructor(props){
         this.props = props;
