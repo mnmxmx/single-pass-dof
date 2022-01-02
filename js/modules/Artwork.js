@@ -16,7 +16,7 @@ export default class Artwork{
     }
 
     init(){
-        const bgColor = 0x0eafc2;
+        const bgColor = 0xffc7d1; // 0xf00c9e0
         common.init({
             $wrapper: this.props.$wrapper,
             bgColor 
@@ -32,7 +32,7 @@ export default class Artwork{
 
         this.fbos = [
             new THREE.WebGLRenderTarget(common.fbo_dimensions.x, common.fbo_dimensions.y),
-            new THREE.WebGLRenderTarget(common.fbo_dimensions.x, common.fbo_dimensions.y),
+            // new THREE.WebGLRenderTarget(common.fbo_dimensions.x, common.fbo_dimensions.y),
             // new THREE.WebGLRenderTarget(common.fbo_dimensions.x, common.fbo_dimensions.y),
         ];
 

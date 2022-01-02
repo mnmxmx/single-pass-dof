@@ -16,8 +16,6 @@ varying float vFogDepth;
 const float PI = 3.14159265359;
 #define saturate(a) clamp( a, 0.0, 1.0 )
 
-
-
 void main(){
 
     // float focusFactor = smoothstep(0.0, uFocusRange, abs(vFogDepth - uFocus));
