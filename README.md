@@ -17,5 +17,6 @@ https://mnmxmx.github.io/single-pass-dof/dist/
 
 ## License
 This source code is not MIT License.  
-You can't use this for your productions / your projects.  
-You can see this source code and learn from it. 
+- You can see this source code and learn from it. 
+- You can't use this for your productions / your projects.
+
