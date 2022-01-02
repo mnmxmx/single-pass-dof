@@ -1,3 +1,6 @@
+// envmap of equiarectangular
+// http://www.pocketgl.com/reflections/
+
 uniform vec3 uLightPos;
 uniform vec3 uColor;
 uniform vec3 uShadowColor;
@@ -17,8 +20,6 @@ const float PI = 3.14159265359;
 #define saturate(a) clamp( a, 0.0, 1.0 )
 
 void main(){
-
-    // float focusFactor = smoothstep(0.0, uFocusRange, abs(vFogDepth - uFocus));
     float fogFactor = smoothstep(uFogNear, uFogFar, vFogDepth);
     float light = dot(normalize(uLightPos), vNormal) * 0.5 + 0.5;
 
@@ -37,9 +38,6 @@ void main(){
     light = light * 0.6 + min(4.0, envDiffuse.r) * 0.5;
 
     color = mix(shadowColor, color, light);
-
-    // color = mix(color, uBgColor, 0.2);
-    // envDiffuse.rgb *= pow(2.0, envDiffuse.a * 255.0 - 128.0);
     color = mix(color, uBgColor * 0.1 + color * 0.9, fogFactor);
 
     gl_FragColor = vec4(color, fogFactor);

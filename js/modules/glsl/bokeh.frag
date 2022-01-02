@@ -5,6 +5,9 @@ uniform float uDirection;
 
 varying vec2 vUv;
 
+// use glsl-fast-gaussian-blur
+// https://github.com/Jam3/glsl-fast-gaussian-blur
+
 vec4 blur13(sampler2D image, vec2 uv, vec2 resolution, vec2 direction, float factor) {
   vec4 color = vec4(0.0);
   vec2 off1 = vec2(1.411764705882353) * direction * factor;

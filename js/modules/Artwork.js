@@ -23,7 +23,6 @@ export default class Artwork{
 
         // common.renderer.outputEncoding = THREE.sRGBEncoding;
 
-
         this.mainScene = new MainScene({bgColor});
 
         this.scene = new THREE.Scene();
