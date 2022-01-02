@@ -2,11 +2,6 @@
 
 This source code and the demo are for a explanation in my blog post.
 
-## Demo
-https://mnmxmx.github.io/single-pass-dof/dist/
-
-
-## Usage the source code
 1. Clone this repository.
 2. Install Node.js (v14.18.2) and yarn(v1.22.10)
 3. Run following commands
@@ -14,6 +9,9 @@ https://mnmxmx.github.io/single-pass-dof/dist/
   yarn install  
   yarn start
 ```
+
+## Demo
+https://mnmxmx.github.io/single-pass-dof/dist/
 
 ## License
 This source code is not MIT License.  
